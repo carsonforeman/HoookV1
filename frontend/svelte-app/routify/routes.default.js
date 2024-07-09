@@ -1,5 +1,3 @@
-
-
 export default {
   "meta": {},
   "id": "_default",
@@ -32,22 +30,37 @@ export default {
       "children": []
     },
     {
-      "meta": {
-        "dynamic": true,
-        "dynamicSpread": true
-      },
+      "meta": {},
+      "id": "_default_venture_profile",
       "_regex": {},
       "_paramKeys": {},
-      "name": "[...404]",
+      "name": "venture-profile",
       "file": {
-        "path": ".routify/components/[...404].svelte",
-        "dir": ".routify/components",
-        "base": "[...404].svelte",
-        "ext": ".svelte",
-        "name": "[...404]"
+        "path": "src/routes/venture-profile",
+        "dir": "src/routes",
+        "base": "venture-profile",
+        "ext": "",
+        "name": "venture-profile"
       },
-      "asyncModule": () => import('./components/[...404].svelte'),
-      "children": []
+      "asyncModule": () => import('../src/routes/venture-profile'),
+      "children": [
+        {
+          "meta": { "dynamic": true },
+          "id": "_default_venture_profile_ventureName",
+          "_regex": {},
+          "_paramKeys": {},
+          "name": "[ventureName]",
+          "file": {
+            "path": "src/routes/venture-profile/[ventureName].svelte",
+            "dir": "src/routes/venture-profile",
+            "base": "[ventureName].svelte",
+            "ext": ".svelte",
+            "name": "[ventureName]"
+          },
+          "asyncModule": () => import('../src/routes/venture-profile/[ventureName].svelte'),
+          "children": []
+        }
+      ]
     }
   ]
 }

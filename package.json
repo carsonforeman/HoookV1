@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@roxi/routify": "^2.18.17",
+    "tippy.js": "^6.3.7"
+  }
+}

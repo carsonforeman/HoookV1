@@ -1,93 +1,119 @@
-<!-- LandingPage.svelte -->
 <script>
-    import Header from '../components/Header.svelte';
+    import Header from '../components/header.svelte';
+    import Footer from '../components/Footer.svelte';
 </script>
 
 <main>
     <Header />
 
-    <div class="container mt-5">
-        <!-- Heading -->
-        <div class="row mb-4">
-            <div class="col">
-                <p class="fw-bold fs-4">Find the venture you are looking for:</p>
-            </div>
-        </div>
-
-        <!-- Filters -->
-        <div class="row mb-3">
-            <div class="col">
-                <form class="d-flex align-items-center">
-                    <div class="mb-2 me-4">
-                        <label for="ventureType" class="form-label visually-hidden">Venture Category</label>
-                        <select class="form-select" id="ventureType">
-                            <option disabled selected value="">Venture Category</option>
-                            <!-- Add options here -->
-                        </select>
-                    </div>
-
-                    <div class="mb-2 me-4">
-                        <label for="location" class="form-label visually-hidden">Venture Location</label>
-                        <select class="form-select" id="location">
-                            <option disabled selected value="">Venture Location</option>
-                            <!-- Add options here -->
-                        </select>
-                    </div>
-
-                    <div class="mb-2 me-4">
-                        <label for="stage" class="form-label visually-hidden">Venture Stage</label>
-                        <select class="form-select" id="stage">
-                            <option disabled selected value="">Venture Stage</option>
-                            <!-- Add options here -->
-                        </select>
-                    </div>
-
-                    <div class="mb-2 me-4">
-                        <label for="resources" class="form-label visually-hidden">Venture Resource Needs</label>
-                        <select class="form-select" id="resources">
-                            <option disabled selected value="">Venture Resource Needs</option>
-                            <!-- Add options here -->
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="row mb-4">
-            <div class="col">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary" type="button">Search</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Venture Cards -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-            <!-- Repeat this card template for each venture -->
-            <div class="col">
-                <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                    <div class="rounded-circle mt-3" style="width: 120px; height: 120px; overflow: hidden;">
-                        <img src="images/logo.png" class="card-img-top img-fluid" alt="Venture Logo">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title mt-3 fw-bold">Hoook</h5>
-                        <p class="card-text">A venture-based social media marketplace for collaboration, discovery, and resource integration.</p>
-                        <div class="d-flex justify-content-start flex-wrap mt-2">
-                            <span class="badge bg-primary me-1 mb-1">Tech Startup</span>
-                            <span class="badge bg-primary me-1 mb-1">Online</span>
-                            <span class="badge bg-primary me-1 mb-1">Building and Development</span>
-                            <span class="badge bg-primary me-1 mb-1">Money</span>
-                        </div>
-                    </div>
+    <div class="content">
+        <div class="container text-center">
+            <!-- Logo -->
+            <div class="row mb-8">
+                <div class="col">
+                    <img src="images/hoook_landing_logo.png" alt="Hoook Logo" class="landing-logo">
                 </div>
             </div>
-            <!-- End of card template -->
+
+            <!-- Decision Tree Section -->
+            <div class="row decision-tree">
+                <a href="/venture-profile/new" class="col-md-5 text-left decision-box">
+                    <h2>Create a Venture Profile</h2>
+                    <p>Bring your idea to life and attract resources to develop it.</p>
+                </a>
+                <a href="/explore/ventures" class="col-md-5 text-left decision-box">
+                    <h2>Explore Ventures</h2>
+                    <p>Discover ventures in development and find opportunities to collaborate.</p>
+                </a>
+            </div>
         </div>
     </div>
+    <Footer />
 </main>
 
 <style>
-    /* Add any additional styles here */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        flex: 1;
+        padding-top: 70px; /* Add padding to avoid overlap with fixed header */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        flex: 1; /* Ensures the container takes up remaining space */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .landing-logo {
+        max-width: 500px;
+        height: auto;
+        margin-top: 100px;
+    }
+
+    .decision-tree {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        gap: 20px; /* Added gap for spacing */
+        margin-top: 125px;
+    }
+
+    .decision-box {
+        background-color: white;
+        border: 2px solid #ddd; /* Light grey border */
+        border-radius: 10px;
+        padding: 20px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 150px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 48%; /* Adjusted width for better spacing */
+        cursor: pointer;
+    }
+
+    .decision-box:hover {
+        border-color: #007bff;
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    }
+
+
+    h2 {
+        font-size: 2em; /* Increased font size */
+        font-weight: bold; /* Bold text */
+        margin-bottom: 10px;
+        text-align: left; /* Left justified */
+    }
+
+    p {
+        font-size: 1.2em;
+        color: grey; /* Grey text color */
+        text-align: left; /* Left justified */
+    }
+
+    .container {
+        margin-bottom: 100px; /* Adds space below the content */
+    }
 </style>
